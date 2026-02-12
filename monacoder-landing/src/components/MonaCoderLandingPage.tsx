@@ -48,7 +48,7 @@ const NavPill = () => (
         </div>
         <div className="leading-tight">
           <div className="text-sm font-semibold tracking-wide">MonaCoder</div>
-          <div className="text-xs text-white/55">100% Local AI coding in VS Code</div>
+          <div className="text-xs text-white/55">Local-first AI coding in VS Code</div>
         </div>
       </button>
 
@@ -444,7 +444,7 @@ export default function MonaCoderLandingPage() {
               >
                 <Badge
                   icon={<Lock className="h-4 w-4" />}
-                  text="100% Local — Zero cloud, all Ollama"
+                  text="Local-first privacy with optional provider bridge"
                 />
                 <Badge
                   icon={<Shield className="h-4 w-4" />}
@@ -459,8 +459,8 @@ export default function MonaCoderLandingPage() {
                 transition={{ duration: 0.8, delay: 0.05 }}
                 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl"
               >
-                AI coding assistant that runs
-                <span className="block text-white/90">entirely on your machine</span>
+                AI coding assistant built
+                <span className="block text-white/90">local-first for real teams</span>
               </motion.h1>
 
               <motion.p
@@ -469,9 +469,9 @@ export default function MonaCoderLandingPage() {
                 transition={{ duration: 0.8, delay: 0.12 }}
                 className="mt-5 max-w-xl text-base leading-relaxed text-white/65 md:text-lg"
               >
-                MonaCoder is a patch-first VS Code extension powered by local Ollama models.
-                Generate structured PATCH_JSON, review with AI, validate with guard rules,
-                and apply changes safely—all without sending code to the cloud.
+                MonaCoder is a patch-first VS Code extension. Run local models via Ollama by default,
+                or bridge to Claude CLI / Codex CLI when needed. Generate structured PATCH_JSON,
+                review with AI, validate with guard rules, and apply changes safely.
               </motion.p>
 
               <motion.div
@@ -549,7 +549,7 @@ export default function MonaCoderLandingPage() {
               Scroll down
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-white/45">
-              {["Local-only", "PATCH_JSON", "Guard rules", "LLM Router", "Context Engine"].map((b) => (
+              {["Local-first", "PATCH_JSON", "Guard rules", "LLM Router", "Context Engine"].map((b) => (
                 <span key={b} className="rounded-full border border-white/10 bg-white/5 px-3 py-2">
                   {b}
                 </span>
@@ -567,7 +567,7 @@ export default function MonaCoderLandingPage() {
             </div>
             <div className="hidden items-center gap-2 text-xs text-white/55 md:flex">
               <CheckCircle2 className="h-4 w-4" />
-              Privacy-first, zero cloud dependency
+              Privacy-first by default, bridge when needed
             </div>
           </div>
 
@@ -601,8 +601,8 @@ export default function MonaCoderLandingPage() {
             />
             <FeatureCard
               icon={<Lock className="h-5 w-5" />}
-              title="100% Local"
-              desc="All models run via Ollama on your machine. Multi-endpoint support for distributed setups. No data leaves your workspace."
+              title="Local-first runtime"
+              desc="Ollama is default for local execution. Optional Claude CLI / Codex CLI bridges are available for heavier tasks."
               cta={{ label: "View models", id: "models" }}
             />
             <FeatureCard
@@ -628,8 +628,8 @@ export default function MonaCoderLandingPage() {
             />
             <FeatureCard
               icon={<Gauge className="h-5 w-5" />}
-              title="Prewarm & optimize"
-              desc="Auto-prewarm models on startup. Configurable timeouts per model type. Latest-wins lock prevents stale operations."
+              title="MCP Integration"
+              desc="Built-in MCP Server for external agents and MCP Client for connecting external tool servers with permissions."
               cta={{ label: "View models", id: "models" }}
             />
           </div>
@@ -782,7 +782,7 @@ export default function MonaCoderLandingPage() {
                 },
                 {
                   t: "3) Apply",
-                  d: "Preview diffs → Apply with locks. Auto-apply guards (max 5 files, 400 lines, blocked globs). Test rerun with failure boost.",
+                  d: "Preview diffs → Apply with locks. Auto-apply guards (default 5 files / 400 lines, configurable to 20 / 2000) plus blocked globs. Test rerun with failure boost.",
                 },
               ].map((s) => (
                 <div
@@ -826,7 +826,7 @@ export default function MonaCoderLandingPage() {
             <div className="text-xs text-white/55">Security</div>
             <div className="mt-2 text-2xl font-semibold">Guard rules by default</div>
             <p className="mt-3 text-sm leading-relaxed text-white/65">
-              Safety is built into the workflow. Guard validation runs on every patch. Auto-apply has strict limits.
+              Safety is built into the workflow. Guard validation runs on every patch. Auto-apply limits are strict by default and configurable by policy.
             </p>
 
             <div className="mt-6 space-y-3">
@@ -849,7 +849,7 @@ export default function MonaCoderLandingPage() {
                 {
                   i: <Gauge className="h-4 w-4" />,
                   t: "Auto-apply limits",
-                  d: "Max 5 files, 400 lines changed. Path traversal protection. Workspace boundary enforcement.",
+                  d: "Defaults: 5 files, 400 changed lines. Configurable ranges: 1-20 files, 50-2000 lines. Path traversal and workspace boundary enforcement.",
                 },
               ].map((r) => (
                 <div
@@ -919,17 +919,29 @@ export default function MonaCoderLandingPage() {
           <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-10">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
               <div>
-                <div className="text-xs text-white/55">Local Models</div>
-                <div className="mt-2 text-2xl font-semibold">Powered by Ollama — all on your machine</div>
+                <div className="text-xs text-white/55">Providers & Models</div>
+                <div className="mt-2 text-2xl font-semibold">Local-first routing with optional CLI bridges</div>
                 <p className="mt-2 max-w-2xl text-sm text-white/65">
-                  MonaCoder routes different tasks to specialized models. All run locally via Ollama with
-                  configurable timeouts and multi-endpoint support for distributed setups.
+                  MonaCoder routes tasks to specialized roles. Use Ollama for fully local execution, and
+                  optionally route selected roles through Claude CLI or Codex CLI from the same settings panel.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Chip text="zero cloud" />
+                <Chip text="ollama + claude_cli + codex_cli" />
                 <Chip text="multi-endpoint" />
                 <Chip text="prewarm support" />
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-3xl border border-white/10 bg-[#070A12]/40 p-6 backdrop-blur-xl">
+              <div className="flex items-center gap-3">
+                <Terminal className="h-5 w-5 text-orange-400" />
+                <div className="text-lg font-semibold">Provider Bridge + MCP</div>
+              </div>
+              <div className="mt-2 text-sm text-white/65">
+                <strong>Bridge:</strong> Route chat/code/review/architect roles across Ollama, Claude CLI, or Codex CLI.<br />
+                <strong>MCP:</strong> Built-in MCP Server (localhost, token, rate-limit) and MCP Client (stdio/SSE external servers).<br />
+                <strong>Controls:</strong> Per-tool permissions, secrets-safe config, and internal rollout flags.
               </div>
             </div>
 
@@ -1012,7 +1024,7 @@ export default function MonaCoderLandingPage() {
               {[
                 {
                   q: "Does my code leave my machine?",
-                  a: "No. MonaCoder is 100% local. All models run via Ollama on your machine. Zero cloud dependencies.",
+                  a: "By default, no. MonaCoder is local-first with Ollama. You can optionally enable Claude CLI or Codex CLI bridges per role when needed.",
                 },
                 {
                   q: "What if the model outputs bad JSON?",
@@ -1020,11 +1032,11 @@ export default function MonaCoderLandingPage() {
                 },
                 {
                   q: "How do you prevent unsafe changes?",
-                  a: "Guard validation blocks secrets, eval(), dangerous patterns. Auto-apply limits: max 5 files, 400 lines, blocked globs. AI review gates.",
+                  a: "Guard validation blocks secrets, eval(), dangerous patterns. Auto-apply defaults to 5 files / 400 lines with configurable caps up to 20 / 2000, plus blocked globs and AI review gates.",
                 },
                 {
-                  q: "Can I use other Ollama models?",
-                  a: "Yes. All models are configurable in settings. Multi-endpoint support for distributed Ollama instances.",
+                  q: "Can I choose providers and models?",
+                  a: "Yes. Configure models per role, multiple Ollama endpoints, and optional provider bridge via Claude CLI or Codex CLI.",
                 },
               ].map((f) => (
                 <div
@@ -1040,10 +1052,10 @@ export default function MonaCoderLandingPage() {
 
           <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
             <div id="cta" className="text-xs text-white/55">Get started</div>
-            <div className="mt-2 text-2xl font-semibold">Install & start coding locally</div>
+            <div className="mt-2 text-2xl font-semibold">Install & start with your preferred runtime</div>
             <p className="mt-3 text-sm leading-relaxed text-white/65">
-              Make sure Ollama is running with the required models. Install the extension and open a project.
-              Try a small change, preview the patch, then apply.
+              Start local with Ollama, then optionally enable Claude CLI or Codex CLI bridge in settings.
+              Install the extension, open a project, preview a small patch, then apply.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex flex-1 items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:opacity-90">
@@ -1060,14 +1072,22 @@ export default function MonaCoderLandingPage() {
 
             <div id="docs" className="mt-6 space-y-3">
               <div className="rounded-3xl border border-white/10 bg-[#070A12]/40 p-5 backdrop-blur-xl">
-                <div className="text-xs text-white/55">1. Install Ollama models</div>
+                <div className="text-xs text-white/55">1. Install local models (Ollama)</div>
                 <div className="mt-2 font-mono text-sm text-white/80">
                   ollama pull &lt;chat-model&gt;<br />
                   ollama pull &lt;code-model&gt;<br />
                   ollama pull &lt;review-model&gt;<br />
                   ollama pull &lt;embedding-model&gt;
                 </div>
-                <div className="mt-2 text-xs text-white/55">Configure your preferred models in extension settings</div>
+                <div className="mt-2 text-xs text-white/55">Configure per-role models and endpoints in extension settings</div>
+              </div>
+              <div className="rounded-3xl border border-white/10 bg-[#070A12]/40 p-5 backdrop-blur-xl">
+                <div className="text-xs text-white/55">Optional: enable provider bridge</div>
+                <div className="mt-2 font-mono text-sm text-white/80">
+                  claude --version<br />
+                  codex --version
+                </div>
+                <div className="mt-2 text-xs text-white/55">Set role providers to Claude CLI or Codex CLI only when needed</div>
               </div>
               <div className="rounded-3xl border border-white/10 bg-[#070A12]/40 p-5 backdrop-blur-xl">
                 <div className="text-xs text-white/55">2. Install extension</div>
@@ -1081,7 +1101,7 @@ export default function MonaCoderLandingPage() {
                 "TypeScript",
                 "JavaScript",
                 "Python",
-                "Any Ollama model",
+                "Provider bridge support",
                 "VS Code 1.85+",
               ].map((c) => (
                 <Chip key={c} text={c} />
@@ -1099,8 +1119,8 @@ export default function MonaCoderLandingPage() {
                   <Code2 className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">MonaCoder v0.4.2</div>
-                  <div className="text-xs text-white/55">100% Local AI coding for VS Code</div>
+                  <div className="text-sm font-semibold">MonaCoder v0.4.5</div>
+                  <div className="text-xs text-white/55">Local-first AI coding for VS Code</div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -1110,7 +1130,7 @@ export default function MonaCoderLandingPage() {
                 <Chip text="Issues" />
               </div>
             </div>
-            <div className="mt-6 text-xs text-white/45">© {new Date().getFullYear()} MonaCoder. Powered by Ollama and local LLMs.</div>
+            <div className="mt-6 text-xs text-white/45">© {new Date().getFullYear()} MonaCoder. Powered by local Ollama + optional CLI provider bridges.</div>
           </div>
         </footer>
       </main>

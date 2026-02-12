@@ -223,7 +223,7 @@ export default function MonaCoderInvestorPage() {
             className="mx-auto mt-6 max-w-2xl text-lg text-white/65"
           >
             MonaCoder enables developers to use AI coding assistance without sending proprietary code
-            to the cloud. 100% local, fully customizable, enterprise-ready.
+            to the cloud by default. Local-first, fully customizable, enterprise-ready.
           </motion.p>
 
           <motion.div
@@ -234,8 +234,8 @@ export default function MonaCoderInvestorPage() {
           >
             <StatCard value="$50B+" label="AI coding tools market by 2030" icon={<TrendingUp className="h-5 w-5" />} />
             <StatCard
-              value="100%"
-              label="Code stays on-premise"
+              value="Local-first"
+              label="On-premise by default"
               icon={<Lock className="h-5 w-5" />}
               highlight
             />
@@ -293,19 +293,19 @@ export default function MonaCoderInvestorPage() {
         <section id="solution" className="mt-16">
           <div className="rounded-[32px] border border-green-500/20 bg-green-500/5 p-8 backdrop-blur-xl md:p-10">
             <div className="text-xs font-medium uppercase tracking-wider text-green-400">The Solution</div>
-            <h2 className="mt-3 text-3xl font-bold">MonaCoder: Enterprise-grade local AI</h2>
+            <h2 className="mt-3 text-3xl font-bold">MonaCoder: Enterprise-grade local-first AI</h2>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <div className="space-y-4">
                 <FeatureRow
                   icon={<Lock className="h-5 w-5 text-green-400" />}
-                  title="100% on-premise"
-                  desc="All AI processing runs locally via Ollama. Code never leaves the developer's machine or corporate network."
+                  title="On-premise by default"
+                  desc="Default execution runs locally via Ollama. Teams can keep code on device/network by policy and selectively enable bridges when approved."
                 />
                 <FeatureRow
                   icon={<Cpu className="h-5 w-5 text-green-400" />}
                   title="Multi-model architecture"
-                  desc="5 configurable model slots for different tasks. Use any Ollama-compatible model. Swap models without code changes."
+                  desc="5 configurable model slots for different tasks. Use Ollama models and optional Claude CLI / Codex CLI bridges without code changes."
                 />
                 <FeatureRow
                   icon={<Shield className="h-5 w-5 text-green-400" />}

@@ -141,7 +141,7 @@ const ProviderCard = ({
       rel="noopener noreferrer"
       className="mt-4 inline-flex items-center text-sm text-white/70 transition hover:text-white"
     >
-      Get API key <ExternalLink className="ml-1 h-3 w-3" />
+      Setup guide <ExternalLink className="ml-1 h-3 w-3" />
     </a>
   </div>
 );
@@ -331,17 +331,17 @@ export default function MonaCoderVibeCodePage() {
             <div className="mx-auto mt-10 max-w-xl space-y-8">
               <Step
                 num={1}
-                title="Get an API key (2 minutes)"
-                desc="Sign up with any AI provider and copy your API key. We recommend OpenAI or Groq for beginners."
+                title="Choose your runtime (2 minutes)"
+                desc="Start with Ollama for local mode, or use Claude CLI / Codex CLI if those tools are already installed."
               />
               <Step
                 num={2}
-                title="Paste it in settings"
-                desc="Open MonaCoder in VS Code, go to settings, paste your API key. Done!"
+                title="Set provider routing in settings"
+                desc="Open MonaCoder settings, then choose provider per role (chat/code/review/architect)."
                 visual={
                   <div className="rounded-2xl border border-white/10 bg-black/40 p-4 font-mono text-xs">
-                    <span className="text-white/50">API Key:</span>{" "}
-                    <span className="text-pink-400">sk-••••••••••••••••</span>
+                    <span className="text-white/50">Code Provider:</span>{" "}
+                    <span className="text-pink-400">claude_cli</span>
                     <button className="ml-2 text-white/30 hover:text-white">
                       <Copy className="h-3 w-3" />
                     </button>
@@ -362,68 +362,54 @@ export default function MonaCoderVibeCodePage() {
           </div>
         </section>
 
-        {/* API PROVIDERS */}
+        {/* PROVIDERS */}
         <section id="providers" className="mt-24">
           <div className="text-center">
             <div className="text-xs font-medium uppercase tracking-wider text-white/50">Choose your AI</div>
-            <h2 className="mt-3 text-3xl font-bold">Pick an API provider</h2>
+            <h2 className="mt-3 text-3xl font-bold">Pick a runtime provider</h2>
             <p className="mx-auto mt-3 max-w-lg text-white/65">
-              Connect to any of these AI services. Each has different strengths and pricing.
-              Start with the free tiers to try it out!
+              MonaCoder supports local-first Ollama and optional CLI bridges.
+              Choose what fits your workflow and privacy policy.
             </p>
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             <ProviderCard
-              name="OpenAI"
-              logo="🤖"
-              desc="GPT-4 and GPT-3.5. The most popular choice. Great for general coding tasks."
-              price="Free tier available, then pay-as-you-go"
-              link="https://platform.openai.com/api-keys"
+              name="Ollama (Local)"
+              logo="🧩"
+              desc="Run models on your own machine for private, offline-first coding."
+              price="Free local runtime"
               popular
+              link="https://ollama.com/download"
             />
             <ProviderCard
-              name="Groq"
-              logo="⚡"
-              desc="Super fast! Uses Llama models. Great for quick iterations."
-              price="Generous free tier"
-              link="https://console.groq.com/keys"
-            />
-            <ProviderCard
-              name="Anthropic"
+              name="Claude CLI"
               logo="🧠"
-              desc="Claude models. Excellent at understanding complex requests."
-              price="Pay-as-you-go"
-              link="https://console.anthropic.com/settings/keys"
+              desc="Bridge to Claude CLI for complex reasoning tasks when needed."
+              price="Depends on your Claude setup"
+              link="https://docs.anthropic.com"
             />
             <ProviderCard
-              name="Together AI"
-              logo="🤝"
-              desc="Access to many open-source models. Good for experimentation."
-              price="Free tier + pay-as-you-go"
-              link="https://api.together.xyz/settings/api-keys"
+              name="Codex CLI"
+              logo="⚙️"
+              desc="Bridge to Codex CLI for code-heavy execution flows and patch generation."
+              price="Depends on your Codex setup"
+              link="https://platform.openai.com/docs"
             />
             <ProviderCard
-              name="OpenRouter"
+              name="MCP Tools"
               logo="🌐"
-              desc="One API for many models. Switch between providers easily."
-              price="Pay-as-you-go, varies by model"
-              link="https://openrouter.ai/keys"
-            />
-            <ProviderCard
-              name="Fireworks AI"
-              logo="🎆"
-              desc="Fast inference for open models. Good balance of speed and cost."
-              price="Free tier available"
-              link="https://fireworks.ai/api-keys"
+              desc="Connect MCP servers for extra tools and context with guardrails."
+              price="Built-in support"
+              link="https://modelcontextprotocol.io"
             />
           </div>
 
           <div className="mt-8 rounded-2xl border border-pink-500/20 bg-pink-500/5 p-6 text-center">
             <Lightbulb className="mx-auto h-8 w-8 text-pink-400" />
             <p className="mt-3 text-sm text-white/75">
-              <strong>Pro tip:</strong> Start with <strong>Groq</strong> for free, fast coding.
-              Upgrade to <strong>OpenAI GPT-4</strong> when you need smarter suggestions.
+              <strong>Pro tip:</strong> Start with <strong>Ollama local mode</strong> for privacy.
+              Turn on Claude CLI or Codex CLI only for tasks that need extra reasoning power.
             </p>
           </div>
         </section>
@@ -498,10 +484,10 @@ export default function MonaCoderVibeCodePage() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500/20 text-sm font-bold text-pink-400">
                     3
                   </div>
-                  <span className="font-medium">Add your API key</span>
+                  <span className="font-medium">Set provider routing</span>
                 </div>
                 <p className="mt-2 pl-11 text-sm text-white/60">
-                  Open Settings (Cmd+,) → Search "MonaCoder" → Paste your API key from any provider above.
+                  Open Settings (Cmd+,) → Search "MonaCoder" → choose provider for each role and test connection.
                 </p>
               </div>
 
@@ -544,7 +530,7 @@ export default function MonaCoderVibeCodePage() {
               },
               {
                 q: "Is it really free?",
-                a: "MonaCoder itself is free. You'll need an API key from a provider like OpenAI or Groq, which have free tiers to start.",
+                a: "MonaCoder itself is free. Local Ollama mode is free; optional CLI bridges follow your external CLI/account setup.",
               },
               {
                 q: "What can I build with this?",
@@ -556,7 +542,7 @@ export default function MonaCoderVibeCodePage() {
               },
               {
                 q: "Is my code private?",
-                a: "Your code is sent to the API provider you choose (like OpenAI). For maximum privacy, you can use a local model with Ollama instead.",
+                a: "By default, local mode keeps execution on your machine via Ollama. If you enable external CLI bridges, follow your team's policy for those routes.",
               },
             ].map(({ q, a }) => (
               <details key={q} className="group rounded-2xl border border-white/10 bg-white/5">

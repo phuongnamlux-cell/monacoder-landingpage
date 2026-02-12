@@ -10,8 +10,8 @@ import MonaCoderPricingPage from './components/MonaCoderPricingPage';
 // - http://localhost:5173/?simple   → Simplified benefit-focused layout
 // - http://localhost:5173/?investor → Investor pitch page
 // - http://localhost:5173/?dev      → Developer sales page (marketing)
-// - http://localhost:5173/?vibe     → Vibe coders (non-technical, API-based)
-// - http://localhost:5173/?pricing  → Lifetime deal $399 (sales page)
+// - http://localhost:5173/?vibe     → Vibe coders (non-technical, provider-guided)
+// - http://localhost:5173/?pricing  → Pricing and team enablement overview
 const params = new URLSearchParams(window.location.search);
 
 export default function App() {

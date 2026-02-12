@@ -264,8 +264,8 @@ export default function MonaCoderDevSalesPage() {
             transition={{ delay: 0.1 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-white/65"
           >
-            Stop sending your code to the cloud. MonaCoder runs 100% locally on your machine.
-            Same AI superpowers, zero privacy concerns.
+            Keep coding local by default. MonaCoder runs on your machine with Ollama first,
+            and can optionally bridge Claude CLI / Codex CLI for selected roles.
           </motion.p>
 
           <motion.div
@@ -299,7 +299,7 @@ export default function MonaCoderDevSalesPage() {
           >
             <div className="flex items-center gap-2">
               <Lock className="h-4 w-4 text-green-400" />
-              <span>100% local</span>
+              <span>Local-first</span>
             </div>
             <div className="flex items-center gap-2">
               <DollarSign className="h-4 w-4 text-green-400" />
@@ -327,7 +327,7 @@ export default function MonaCoderDevSalesPage() {
             <PainPoint
               icon={<Cloud className="h-5 w-5" />}
               pain="Your code goes to someone else's server"
-              solution="→ MonaCoder: 100% local, your code never leaves"
+              solution="→ MonaCoder: local-first mode keeps code on your machine by default"
             />
             <PainPoint
               icon={<DollarSign className="h-5 w-5" />}
@@ -352,7 +352,7 @@ export default function MonaCoderDevSalesPage() {
             <PainPoint
               icon={<Server className="h-5 w-5" />}
               pain="Locked into one AI provider"
-              solution="→ MonaCoder: Use any Ollama model, switch anytime"
+              solution="→ MonaCoder: Use Ollama locally or bridge Claude CLI / Codex CLI when needed"
             />
           </div>
         </section>
@@ -401,7 +401,7 @@ export default function MonaCoderDevSalesPage() {
               icon={<GitBranch className="h-6 w-6 text-purple-400" />}
               title="Safe auto-apply"
               desc="Preview diffs, set file limits, auto-rollback on test failure. You're always in control."
-              code="max 5 files, 400 lines"
+              code="default 5/400 • configurable up to 20/2000"
             />
             <FeatureBlock
               icon={<Cpu className="h-6 w-6 text-cyan-400" />}
@@ -441,7 +441,7 @@ export default function MonaCoderDevSalesPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <CompareRow feature="100% local processing" mona={true} copilot={false} cursor={false} />
+                  <CompareRow feature="Local-first processing" mona={true} copilot={false} cursor={false} />
                   <CompareRow feature="Works offline" mona={true} copilot={false} cursor={false} />
                   <CompareRow feature="Price" mona="Free" copilot="$19/mo" cursor="$20/mo" />
                   <CompareRow feature="Open source" mona={true} copilot={false} cursor={false} />
@@ -497,7 +497,7 @@ export default function MonaCoderDevSalesPage() {
                 </div>
                 <h2 className="mt-4 text-4xl font-bold">Free forever</h2>
                 <p className="mt-2 max-w-md text-white/65">
-                  MonaCoder is free and open source. No subscriptions, no API keys to manage,
+                  MonaCoder is free and open source. No subscriptions required for local mode,
                   no surprise bills. Just install and code.
                 </p>
               </div>
@@ -590,7 +590,7 @@ export default function MonaCoderDevSalesPage() {
         <section className="mt-24 text-center">
           <h2 className="text-3xl font-bold">Ready to code with privacy?</h2>
           <p className="mx-auto mt-4 max-w-lg text-white/65">
-            Join thousands of developers who've switched to local AI coding.
+            Join thousands of developers using local-first AI coding.
             No signup, no credit card, no BS.
           </p>
           <button

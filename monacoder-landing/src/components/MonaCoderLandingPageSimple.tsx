@@ -165,7 +165,7 @@ export default function MonaCoderLandingPageSimple() {
             transition={{ duration: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-2"
           >
-            <Badge icon={<Lock className="h-4 w-4" />} text="100% Local" />
+            <Badge icon={<Lock className="h-4 w-4" />} text="Local-first" />
             <Badge icon={<Shield className="h-4 w-4" />} text="Safe & Secure" />
             <Badge icon={<Zap className="h-4 w-4" />} text="Fast" />
           </motion.div>
@@ -176,9 +176,9 @@ export default function MonaCoderLandingPageSimple() {
             transition={{ duration: 0.8, delay: 0.05 }}
             className="mx-auto mt-8 max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl"
           >
-            AI coding assistant that runs{" "}
+            AI coding assistant built{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              entirely on your machine
+              local-first for your workflow
             </span>
           </motion.h1>
 
@@ -188,8 +188,8 @@ export default function MonaCoderLandingPageSimple() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-white/65"
           >
-            Generate code, review changes, and apply patches safely — all powered by local AI models.
-            Your code never leaves your computer.
+            Generate code, review changes, and apply patches safely. Run fully local with Ollama by default,
+            or enable Claude CLI / Codex CLI bridge for selected roles.
           </motion.p>
 
           <motion.div
@@ -224,8 +224,8 @@ export default function MonaCoderLandingPageSimple() {
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             <FeatureCard
               icon={<Lock className="h-5 w-5" />}
-              title="100% Private"
-              desc="All AI models run locally via Ollama. Your code, your data, your machine. Nothing is sent to the cloud."
+              title="Local-first privacy"
+              desc="Ollama local mode is the default. Optional provider bridge (Claude CLI / Codex CLI) is available when you need extra capacity."
             />
             <FeatureCard
               icon={<Wand2 className="h-5 w-5" />}
@@ -380,7 +380,7 @@ export default function MonaCoderLandingPageSimple() {
               </div>
               <div className="space-y-3">
                 <CheckItem text="Your code never leaves your machine" />
-                <CheckItem text="No API keys or subscriptions needed" />
+                <CheckItem text="No API key needed for local mode" />
                 <CheckItem text="Works offline, anywhere" />
                 <CheckItem text="No usage limits or rate throttling" />
                 <CheckItem text="Full control over which models to use" />
@@ -399,11 +399,11 @@ export default function MonaCoderLandingPageSimple() {
               {[
                 {
                   q: "Does my code leave my machine?",
-                  a: "No. Everything runs locally via Ollama. Zero cloud dependencies.",
+                  a: "By default no, because MonaCoder runs local-first via Ollama. You can optionally enable Claude CLI / Codex CLI bridge per role.",
                 },
                 {
                   q: "What models can I use?",
-                  a: "Any Ollama-compatible model. Configure different models for chat, code generation, review, and more.",
+                  a: "Any Ollama-compatible model, plus optional Claude CLI / Codex CLI providers for chat/code/review/architect roles.",
                 },
                 {
                   q: "Is it safe to auto-apply changes?",
@@ -430,14 +430,15 @@ export default function MonaCoderLandingPageSimple() {
               <div className="text-xs font-medium uppercase tracking-wider text-white/50">Get started</div>
               <h2 className="mt-2 text-2xl font-semibold">Ready to try?</h2>
               <p className="mt-3 text-sm text-white/65">
-                Install Ollama, pull your preferred models, and install the VS Code extension.
+                Install Ollama for local mode, then optionally enable CLI bridge providers in settings.
+                You'll be up and running in minutes.
                 You'll be up and running in minutes.
               </p>
             </div>
 
             <div className="mt-6 space-y-3">
               <div className="rounded-2xl border border-white/10 bg-[#070A12]/40 p-4">
-                <div className="text-xs text-white/55">1. Install Ollama</div>
+                <div className="text-xs text-white/55">1. Install Ollama (local runtime)</div>
                 <div className="mt-1 font-mono text-sm text-white/80">brew install ollama</div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-[#070A12]/40 p-4">
